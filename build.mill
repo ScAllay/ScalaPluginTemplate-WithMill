@@ -7,19 +7,19 @@ object foo extends ScalaModule {
 
   def repositoriesTask = Task.Anon {
     super.repositoriesTask() ++ Seq(
+      MavenRepository("https://jitpack.io/"),
       MavenRepository("https://repo.opencollab.dev/maven-releases/"),
       MavenRepository("https://repo.opencollab.dev/maven-snapshots/"),
       MavenRepository("https://storehouse.okaeri.eu/repository/maven-public/"),
-      MavenRepository("https://jitpack.io/"),
     )
   }
 
-  def scalaVersion = "3.6.2"
+  def scalaVersion = "3.7.2"
 
   // def ivyDeps = Agg()
 
   def compileIvyDeps = Agg(
-    ivy"org.allaymc.allay:api:0.1.3"
+    ivy"org.allaymc.allay:api:0.7.0"
   )
 
   def assemblyRules = Assembly.defaultRules ++ Seq(Rule.ExcludePattern("scala/.*"))
